@@ -20,6 +20,7 @@ export function App() {
         <Button
           title="click-expo"
           onPress={() => {
+            // console.log(JSON.stringify(Constants, null, 2));
             refWebView.current?.injectJavaScript(
               `window.alert("expo to vite");`
             );
@@ -48,10 +49,11 @@ function getWebViewUri(): string {
     if (!port) {
       throw new Error("DEV_WEB_VIEW_PORT is not defined");
     }
-    // e.g. exp://192.168.xxx.xxx:19000  =>  http://192.168.xxx.xxx:18182
-    return Constants.experienceUrl
-      .replace(/\d+$/, port)
-      .replace("exp://", "http://");
+    if (!Constants.manifest.hostUri) {
+      throw new Error("hostUri is not defined");
+    }
+    let [host] = Constants.manifest.hostUri.split(":");
+    return "http://" + host + ":" + port;
   }
 
   // how to access bundled client assets?

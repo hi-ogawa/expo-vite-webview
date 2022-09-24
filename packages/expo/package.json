@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "expo start",
+    "dev": "expo start --dev-client",
     "tsc": "tsc",
     "tsc:dev": "tsc --noEmit --watch --preserveWatchOutput",
-    "start": "expo start --dev-client",
-    "android": "expo run:android",
-    "ios": "expo run:ios"
+    "android:gradle": "cd ./android && ./gradlew",
+    "android:assemble": "npm run android:gradle -- assembleDebug --build-cache --configure-on-demand",
+    "android:install": "npm run android:gradle -- installDebug --build-cache"
   },
   "dependencies": {
     "expo": "~46.0.9",
