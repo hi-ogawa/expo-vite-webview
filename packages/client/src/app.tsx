@@ -4,7 +4,7 @@ export function App() {
       <div className="flex flex-col items-center gap-[8px]">
         <p>Hello Vite</p>
         <button
-          className="border px-2 py-1 uppercase bg-gray-100"
+          className="border px-2 py-1 uppercase bg-gray-200 shadow"
           onClick={() => {
             window.ReactNativeWebView.postMessage("vite-to-expo-postMessage");
           }}
