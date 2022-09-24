@@ -8,7 +8,9 @@
     "tsc:dev": "tsc --noEmit --watch --preserveWatchOutput",
     "android:gradle": "cd ./android && ./gradlew",
     "android:assemble": "npm run android:gradle -- assembleDebug --build-cache --configure-on-demand",
-    "android:install": "npm run android:gradle -- installDebug --build-cache"
+    "android:install": "npm run android:gradle -- installDebug --build-cache",
+    "android:assemble:release": "npm run android:gradle -- assembleRelease --build-cache --configure-on-demand",
+    "android:install:release": "npm run android:gradle -- installRelease --build-cache"
   },
   "dependencies": {
     "expo": "~46.0.9",
