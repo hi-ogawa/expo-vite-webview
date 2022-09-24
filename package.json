@@ -1,6 +1,7 @@
 {
   "scripts": {
     "setup": "pnpm i && npm -C packages/expo i",
+    "setup:ci": "pnpm i --frozen-lockfile && npm -C packages/expo ci",
     "clean": "run-s clean:*",
     "clean:node_modules": "rm -rf node_modules packages/**/node_modules",
     "dev": "run-p dev:*",

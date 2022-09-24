@@ -15,6 +15,7 @@ npm run dev
 - [ ] debugging
   - [x] logging
   - [ ] remote inspector
+- [ ] testing
 - [ ] package and distributing app
   - standalone mode?
 
