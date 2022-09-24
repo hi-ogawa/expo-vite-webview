@@ -6,6 +6,7 @@ const EXPO_CONFIG = {
     DEV_WEB_VIEW_PORT: "18182",
     CLIENT_VERSION: "0.0.0-pre.0",
   },
+  platforms: ["android"],
   android: {
     package: "dev.hiro18181.expo_vite_webview",
   },
