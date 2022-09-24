@@ -9,6 +9,8 @@ npm run setup
 npm run dev
 ```
 
+![image](https://user-images.githubusercontent.com/4232207/192078396-fb4c6f52-0036-47d2-b71e-7e89aefb9702.png)
+
 ## todo
 
 - [x] ipc
@@ -18,6 +20,7 @@ npm run dev
 - [ ] testing
 - [ ] package and distributing app
   - standalone mode?
+  - asset update?
 
 ## references
 
