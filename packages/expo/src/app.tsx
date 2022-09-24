@@ -59,7 +59,7 @@ function getWebViewUri(): string {
   if (!version) {
     throw new Error("CLIENT_VERSION is not defined");
   }
-  return `https://cdn.jsdelivr.net/gh/hi-ogawa/expo-vite-webview@client-${version}/packages/client/dist/index.html`;
+  return `https://rawcdn.githack.com/hi-ogawa/expo-vite-webview/client-${version}/packages/client/dist/index.html`;
 }
 
 const WEB_VIEW_URI = getWebViewUri();
