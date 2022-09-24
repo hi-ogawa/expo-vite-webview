@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu -o pipefail
 
-version="$(jq '.version' package.json)"
+version="$(jq -r '.version' package.json)"
 name="client-$version"
 current_branch="$(git rev-parse --abbrev-ref HEAD)"
 
@@ -14,11 +14,12 @@ cp -r build/release dist
 
 # commit from detached HEAD
 git checkout --detach
-git commit -am "chore: release $name"
+git add dist
+git commit -m "chore: release $name"
 
 # push tag
 git tag "$name"
 git push origin "$name"
 
 # restore branch
-git reset --hard "$current_branch"
+git checkout "$current_branch"

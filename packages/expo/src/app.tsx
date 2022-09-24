@@ -59,8 +59,6 @@ function getWebViewUri(): string {
   if (!version) {
     throw new Error("CLIENT_VERSION is not defined");
   }
-  // jsdeliver cache header is good enough (ideally we want immutable)
-  //   cache-control: public, max-age=604800, s-maxage=43200
   return `https://cdn.jsdelivr.net/gh/hi-ogawa/expo-vite-webview@client-${version}/packages/client/dist/index.html`;
 }
 
