@@ -1,7 +1,7 @@
-import { WebView } from "react-native-webview";
 import Constants from "expo-constants";
-import { Button, Text, View } from "react-native";
 import React from "react";
+import { Button, Text, View } from "react-native";
+import { WebView } from "react-native-webview";
 
 export function App() {
   const refWebView = React.useRef<WebView>(null);
