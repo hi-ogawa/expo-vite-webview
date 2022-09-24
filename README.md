@@ -14,6 +14,10 @@ npm -C packages/client run dev
 npm -C packages/expo run android:install
 npm -C packages/expo run dev
 
+# deploy production assets for webview
+npm -C packages/client run build
+npm -C packages/client run deploy
+
 # run release build
 npm -C packages/expo run android:install:release
 ```
@@ -27,9 +31,8 @@ npm -C packages/expo run android:install:release
   - [x] logging
   - [ ] remote inspector
 - [ ] testing
-- [x] manual build (no aes) (gradle)
-- [ ] packaging
-- [ ] asset update
+- [x] build without eas
+- [ ] update without eas
 - [ ] distributing app
 
 ## references
