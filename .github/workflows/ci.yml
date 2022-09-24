@@ -14,4 +14,18 @@ jobs:
       - run: npm run setup:ci
       - run: npm run lint
       - run: npm run tsc
+      - run: npm -C packages/client run build
+
+  # TODO: cache build
+  build-android:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: "7.11.0"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.17.0"
+      - run: npm run setup:ci
       - run: docker-compose run --rm dev npm -C packages/expo run android:assemble:release
