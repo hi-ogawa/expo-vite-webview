@@ -20,7 +20,6 @@ export function App() {
         <Button
           title="click-expo"
           onPress={() => {
-            // console.log(JSON.stringify(Constants, null, 2));
             refWebView.current?.injectJavaScript(
               `window.alert("expo to vite");`
             );
