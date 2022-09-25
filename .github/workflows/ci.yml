@@ -27,6 +27,7 @@ jobs:
         with:
           node-version: "16.17.0"
       - run: npm run setup:ci
+      # TODO: when to invalidate cache? (probably packages/expo/android/settings.gradle, packages/expo/android/build.gradle, packages/expo/android/app/build.gradle)
       - name: cache .gradle
         uses: actions/cache@v3
         with:
