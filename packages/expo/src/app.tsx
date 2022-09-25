@@ -48,14 +48,18 @@ function getWebViewUri(): string {
     if (!port) {
       throw new Error("DEV_WEB_VIEW_PORT is not defined");
     }
-    // e.g. exp://192.168.xxx.xxx:19000  =>  http://192.168.xxx.xxx:18182
-    return Constants.experienceUrl
-      .replace(/\d+$/, port)
-      .replace("exp://", "http://");
+    if (!Constants.manifest.hostUri) {
+      throw new Error("hostUri is not defined");
+    }
+    let [host] = Constants.manifest.hostUri.split(":");
+    return "http://" + host + ":" + port;
   }
 
-  // how to access bundled client assets?
-  throw new Error("TODO");
+  const version = Constants.expoConfig?.extra?.["CLIENT_VERSION"];
+  if (!version) {
+    throw new Error("CLIENT_VERSION is not defined");
+  }
+  return `https://rawcdn.githack.com/hi-ogawa/expo-vite-webview/client-${version}/packages/client/dist/index.html`;
 }
 
 const WEB_VIEW_URI = getWebViewUri();

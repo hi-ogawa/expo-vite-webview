@@ -1,7 +1,10 @@
 {
+  "version": "0.0.0-pre.0",
   "scripts": {
+    "clean": "rm -rf build",
     "dev": "vite --host --port 18182 --no-clearScreen",
-    "build": "vite build --outDir build"
+    "build": "vite build --outDir build/release",
+    "deploy": "bash ./misc/deploy.sh"
   },
   "devDependencies": {
     "@tsconfig/node16-strictest": "^1.0.3",

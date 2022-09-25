@@ -1,0 +1,9 @@
+services:
+  # https://github.com/react-native-community/docker-android
+  dev:
+    image: reactnativecommunity/react-native-android
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./.gradle:/root/.gradle
+    profiles: ["tools"]
