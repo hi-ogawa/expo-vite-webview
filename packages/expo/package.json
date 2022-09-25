@@ -4,9 +4,10 @@
   "main": "./src/index.ts",
   "scripts": {
     "dev": "expo start --dev-client",
-    "export": "expo export --platform android",
     "tsc": "tsc",
     "tsc:dev": "tsc --noEmit --watch --preserveWatchOutput",
+    "updates:build": "expo export --platform android",
+    "updates:deploy": "bash ./misc/deploy-updates.sh",
     "android:gradle": "cd ./android && ./gradlew",
     "android:assemble": "npm run android:gradle -- assembleDebug --build-cache --configure-on-demand",
     "android:install": "npm run android:gradle -- installDebug --build-cache",
