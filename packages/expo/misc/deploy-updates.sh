@@ -7,7 +7,7 @@ current_branch="$(git rev-parse --abbrev-ref HEAD)"
 test -z "$(git status --porcelain)"
 
 # output timestamp and tag name
-runtimeVersion=0.0.0
+runtimeVersion=0.0.0  # TODO: read app.config.js instead of hard-coding it
 createdAt="$(date -u -d @"$(stat -c %W dist/metadata.json)" +"%Y-%m-%dT%H-%M-%S")"
 name="expo-updates-$runtimeVersion-$createdAt"
 echo "$createdAt" > dist/createdAt.txt
