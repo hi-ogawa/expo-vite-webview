@@ -33,3 +33,5 @@ jobs:
           key: gradle
           path: .gradle
       - run: docker-compose run --rm dev npm -C packages/expo run android:assemble:release
+      - name: fix .gradle file owner
+        run: sudo chown -R $(id -u):$(id -g) .gradle
