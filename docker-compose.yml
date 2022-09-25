@@ -5,4 +5,5 @@ services:
     working_dir: /app
     volumes:
       - ./:/app
+      - ./.gradle:/root/.gradle
     profiles: ["tools"]
