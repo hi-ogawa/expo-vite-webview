@@ -1,4 +1,6 @@
 pnpm-lock.yaml
 packages/expo/.expo
 packages/expo/android
-packages/client/build
+**/dist
+**/build
+**/.vercel
