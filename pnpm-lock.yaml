@@ -48,7 +48,6 @@ importers:
       '@hattip/response': ^0.0.17
       '@tsconfig/strictest': ^1.0.2
       '@types/node': ^16
-      date-fns: ^2.29.3
       esbuild: ^0.15.9
       esbuild-register: ^3.3.3
       rakkasjs: ^0.6.1
@@ -66,7 +65,6 @@ importers:
     devDependencies:
       '@tsconfig/strictest': 1.0.2
       '@types/node': 16.11.60
-      date-fns: 2.29.3
       esbuild: 0.15.9
       esbuild-register: 3.3.3_esbuild@0.15.9
       undici: 5.10.0
@@ -972,11 +970,6 @@ packages:
 
   /csstype/3.1.1:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
-
-  /date-fns/2.29.3:
-    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
-    engines: {node: '>=0.11'}
-    dev: true
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
