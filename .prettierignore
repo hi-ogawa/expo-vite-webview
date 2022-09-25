@@ -3,3 +3,4 @@ packages/expo/.expo
 packages/expo/android
 **/dist
 **/build
+**/.vercel
