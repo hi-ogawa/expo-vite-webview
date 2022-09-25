@@ -1,0 +1,13 @@
+{
+  "id": "manifest--0.0.0--android--2022-09-25T15:10:34.426Z",
+  "createdAt": "2022-09-25T15:10:34.426Z",
+  "runtimeVersion": "0.0.0",
+  "metadata": {},
+  "extra": {},
+  "launchAsset": {
+    "key": "bundles/android-1cd7c85ae9cf77ef82be995ab567c8d6.js",
+    "url": "https://rawcdn.githack.com/hi-ogawa/expo-vite-webview/expo-updates--0.0.0--2022-09-25T15-10-34/packages/expo/release/bundles/android-1cd7c85ae9cf77ef82be995ab567c8d6.js",
+    "contentType": "application/javascript"
+  },
+  "assets": []
+}

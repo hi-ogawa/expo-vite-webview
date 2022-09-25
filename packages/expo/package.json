@@ -4,6 +4,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "dev": "expo start --dev-client",
+    "export": "expo export --platform android",
     "tsc": "tsc",
     "tsc:dev": "tsc --noEmit --watch --preserveWatchOutput",
     "android:gradle": "cd ./android && ./gradlew",

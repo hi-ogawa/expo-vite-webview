@@ -20,6 +20,12 @@ npm -C packages/client run deploy
 
 # run release build
 npm -C packages/expo run android:install:release
+
+# deploy expo-updates
+npm -C packages/expo run export
+npm -C packages/expo-updates-server run generate-manifest
+npm -C packages/expo-updates-server run build
+npm -C packages/expo-updates-server run deploy
 ```
 
 ![image](https://user-images.githubusercontent.com/4232207/192078396-fb4c6f52-0036-47d2-b71e-7e89aefb9702.png)

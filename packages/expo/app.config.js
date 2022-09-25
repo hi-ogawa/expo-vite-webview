@@ -2,6 +2,7 @@
 const EXPO_CONFIG = {
   name: "expo-vite-webview",
   version: "0.0.0",
+  runtimeVersion: "0.0.0",
   extra: {
     // TODO: switch by environment variable
     DEV_WEB_VIEW_PORT: "18182",
