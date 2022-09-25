@@ -1,4 +1,5 @@
 import assert from "assert";
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import undici from "undici";
@@ -64,14 +65,14 @@ async function main() {
 
   const metadataRaw = await fs.promises.readFile(metadataPath, "utf-8");
   const metadata = EXPORT_METADATA_SCHEMA.parse(JSON.parse(metadataRaw));
-  const fileStat = await fs.promises.stat(metadataPath);
 
   //
   // convert manifest.json for each platform
   //
-  const createdAt = fileStat.birthtime.toISOString();
-  const createdAtEscaped = createdAt.slice(0, 19).replaceAll(/\W/g, "-");
-  const tag = `expo-updates--${runtimeVersion}--${createdAtEscaped}`;
+  const createdAt = fs
+    .readFileSync(path.join(exportDir, "createdAt.txt"), "utf-8")
+    .trim();
+  const tag = fs.readFileSync(path.join(exportDir, "tag.txt"), "utf-8").trim();
   const baseUrl = `https://rawcdn.githack.com/hi-ogawa/expo-vite-webview/${tag}/packages/expo/release`;
 
   for (const [platform, fileMetadata] of Object.entries(
@@ -89,7 +90,7 @@ async function main() {
       metadata: {},
       extra: {},
       launchAsset: {
-        key: bundle,
+        key: await getAssetKey(`${exportDir}/${bundle}`),
         url: `${baseUrl}/${bundle}`,
         contentType: "application/javascript",
       },
@@ -98,7 +99,7 @@ async function main() {
 
     for (const asset of assets) {
       manifest.assets.push({
-        key: asset.path,
+        key: await getAssetKey(asset.path),
         url: `${baseUrl}/${asset.path}`,
         contentType: await extensionToContentType(asset.ext),
         fileExtension: "." + asset.ext,
@@ -112,6 +113,17 @@ async function main() {
     const manifestRaw = JSON.stringify(manifest, null, 2) + "\n";
     await fs.promises.writeFile(manifestPath, manifestRaw);
   }
+}
+
+async function getAssetKey(assetPath: string): Promise<string> {
+  // actually the file name already contains md5 hash https://github.com/expo/custom-expo-updates-server/blob/a20aa7b45698b2c5c43b994983e7252038eb0afd/expo-updates-server/common/helpers.ts#L58
+  // but let's verify just in case
+  const { name } = path.parse(assetPath);
+  const hash = name.slice(-32);
+  const buffer = await fs.promises.readFile(assetPath);
+  const actual = crypto.createHash("md5").update(buffer).digest("hex");
+  assert.equal(hash, actual);
+  return hash;
 }
 
 async function extensionToContentType(extension: string): Promise<string> {
