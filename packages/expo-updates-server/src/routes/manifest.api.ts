@@ -52,7 +52,7 @@ export async function get(ctx: RequestContext) {
 const MANIFESTS = import.meta.glob("../manifests/*.json", {
   eager: true,
   as: "raw",
-}) as any as Record<string, string>;
+});
 
 function getManifest(
   runtimeVersion: string,
