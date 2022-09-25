@@ -22,7 +22,8 @@ npm -C packages/client run deploy
 npm -C packages/expo run android:install:release
 
 # deploy expo-updates
-npm -C packages/expo run export
+npm -C packages/expo run updates:build
+npm -C packages/expo run updates:deploy
 npm -C packages/expo-updates-server run generate-manifest
 npm -C packages/expo-updates-server run build
 npm -C packages/expo-updates-server run deploy
